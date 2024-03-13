@@ -20,7 +20,7 @@
         </p>
         <p>
             {{ form.status.label }}<br>
-            {{ form.status(size=32) }}<br>
+            {{ form.status(size=4) }}<br>
             {% for error in form.status.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
