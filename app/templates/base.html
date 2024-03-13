@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} To-Do App</title>
+        {% else %}
+        <title>Herzlich willkommen bei To-Do App</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            Herzlich willkommen bei To-Do App
+            <a href="{{ url_for('index') }}">Home</a>
+            
+            <a href="{{ url_for('neuesToDo') }}">Erstellen Sie Ihr neues To-Do</a>
+            
+            <a href="{{ url_for('logout') }}">Abmeldung</a>
+            
+            
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

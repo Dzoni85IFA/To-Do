@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Guten Tag {{ user }}, <br>
+        To Do App Team wünscht Dir einen wunderschönen Tag!</h1>
+    {% for item in todo %}
+    <div>
+        <table>
+            <tr>
+                <td>Id:</td>
+                <td>{{ item.ToDo_id }}</td>
+            </tr>
+            <tr>
+                <td>Titel:</td>
+                <td>{{ item.titel }}</td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>{{ item.description }}</td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td>{{ item.status }}</td>
+            </tr>
+            <tr>
+                <td>Due to:</td>
+                <td>{{ item.todountil }}</td>
+            </tr>
+            <tr>
+                <td>Aktionen:</td>
+                <td>
+                    {% if not item.status == "Erledigt" %}
+                    <a href="{{ url_for('todoSchliessen', id=item.ToDo_id) }}">Erledigt</a>
+                    <a href="{{ url_for('todoProgress', id=item.ToDo_id) }}">In Arbeit</a>
+                    {% endif %}
+                    <a href="{{ url_for('todoLoeschen', id=item.ToDo_id) }}">Löschen</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    {% endfor %}
+{% endblock %}
