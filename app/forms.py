@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField, TextAreaField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from app.models import User
 
@@ -31,7 +31,7 @@ class RegistrationForm(FlaskForm):
 
 class ToDoForm(FlaskForm):
     titel = StringField('Titel', validators=[DataRequired()])
-    description = StringField('Beschreibung')
+    description = TextAreaField('Beschreibung')
     status = StringField('Status', validators=[DataRequired()])
     todountil = DateField('Fälligkeitsdatum', validators=[DataRequired()])
     submit = SubmitField('Speichern')
