@@ -32,6 +32,7 @@ class RegistrationForm(FlaskForm):
 class ToDoForm(FlaskForm):
     titel = StringField('Titel', validators=[DataRequired()])
     description = TextAreaField('Beschreibung')
-    status = StringField('Status', validators=[DataRequired()])
+    status_choices = [('Neu'), ('In Arbeit'), ('Erledigt')]
+    status = SelectField('Status', choices=status_choices, validators=[DataRequired()])
     todountil = DateField('Fälligkeitsdatum', validators=[DataRequired()])
     submit = SubmitField('Speichern')
