@@ -65,7 +65,7 @@ def neuesToDo():
             todo = ToDo(titel=form.titel.data, description=form.description.data, status=form.status.data, todountil=form.todountil.data, user_id=session["User"])
             db.session.add(todo)
             db.session.commit()
-            flash(f'Gratuliere {user.username}, Sie haben eine nue Aufgabe erstellt!')
+            flash(f'Gratuliere {user.username}, Sie haben eine neue Aufgabe erstellt!')
             return redirect(url_for('login'))
         #form = ToDoForm()
         return render_template('neues_to_do.html', form=form, user=user.username)
