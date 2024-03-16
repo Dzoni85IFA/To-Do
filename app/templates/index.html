@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Guten Tag {{ user }}, <br>
-        To Do App Team wünscht Dir einen wunderschönen Tag!</h1>
+        To-Do App Team wünscht Ihnen einen wunderschönen Tag!</h1>
     {% for item in todo %}
     <div>
         <table>
@@ -15,7 +15,7 @@
                 <td>{{ item.titel }}</td>
             </tr>
             <tr>
-                <td>Description:</td>
+                <td>Beschreibung:</td>
                 <td>{{ item.description }}</td>
             </tr>
             <tr>
@@ -23,7 +23,7 @@
                 <td>{{ item.status }}</td>
             </tr>
             <tr>
-                <td>Due to:</td>
+                <td>Fälligkeitsdatum:</td>
                 <td>{{ item.todountil }}</td>
             </tr>
             <tr>
