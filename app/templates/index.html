@@ -1,39 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Guten Tag {{ user }}, <br>
-        To-Do App Team wünscht Ihnen einen wunderschönen Tag!</h1>
-    {% for item in todo %}
+    <h1>Guten Tag {{ user }}, <br> <!-- Begrüssungsnachricht mit Benutzernamen -->
+        To-Do App Team wünscht Ihnen einen wunderschönen Tag!</h1> <!-- Grussnachricht -->
+    {% for item in todo %} <!-- Iteriert über die To-Do-Liste -->
     <div>
         <table>
             <tr>
-                <td>Id:</td>
-                <td>{{ item.ToDo_id }}</td>
+                <td>Id:</td> <!-- Spalte für die To-Do-ID -->
+                <td>{{ item.ToDo_id }}</td> <!-- Anzeige der To-Do-ID -->
             </tr>
             <tr>
-                <td>Titel:</td>
-                <td>{{ item.titel }}</td>
+                <td>Titel:</td> <!-- Spalte für den Titel -->
+                <td>{{ item.titel }}</td> <!-- Anzeige des Titels -->
             </tr>
             <tr>
-                <td>Beschreibung:</td>
-                <td>{{ item.description }}</td>
+                <td>Beschreibung:</td> <!-- Spalte für die Beschreibung -->
+                <td>{{ item.description }}</td> <!-- Anzeige der Beschreibung -->
             </tr>
             <tr>
-                <td>Status:</td>
-                <td>{{ item.status }}</td>
+                <td>Status:</td> <!-- Spalte für den Status -->
+                <td>{{ item.status }}</td> <!-- Anzeige des Status -->
             </tr>
             <tr>
-                <td>Fälligkeitsdatum:</td>
-                <td>{{ item.todountil }}</td>
+                <td>Fälligkeitsdatum:</td> <!-- Spalte für das Fälligkeitsdatum -->
+                <td>{{ item.todountil }}</td> <!-- Anzeige des Fälligkeitsdatums -->
             </tr>
             <tr>
                 <td>Aktionen:</td>
                 <td>
-                    {% if not item.status == "Erledigt" %}
-                    <a href="{{ url_for('todoSchliessen', id=item.ToDo_id) }}">Erledigt</a>
-                    <a href="{{ url_for('todoProgress', id=item.ToDo_id) }}">In Arbeit</a>
+                    {% if not item.status == "Erledigt" %} <!-- Bedingte Anzeige je nach Status -->
+                    <a href="{{ url_for('todoSchliessen', id=item.ToDo_id) }}">Erledigt</a> <!-- Link zum Schliessen der Aufgabe -->
+                    <a href="{{ url_for('todoProgress', id=item.ToDo_id) }}">In Arbeit</a> <!-- Link zum Setzen der Aufgabe auf "In Arbeit" -->
                     {% endif %}
-                    <a href="{{ url_for('todoLoeschen', id=item.ToDo_id) }}">Löschen</a>
+                    <a href="{{ url_for('todoLoeschen', id=item.ToDo_id) }}">Löschen</a> <!-- Link zum Löschen der Aufgabe -->
                 </td>
             </tr>
         </table>
