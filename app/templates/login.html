@@ -1,25 +1,26 @@
 {% extends "base.html" %}
 
-{% block content %}
-    <h1>Anmeldung</h1>
-    <form action="" method="post" novalidate>
+{% block content %} 
+    <h1>Anmeldung</h1> <!-- Überschrift für die Anmeldeseite -->
+    <form action="" method="post" novalidate> <!-- Anmeldeformular mit POST-Methode -->
         {{ form.hidden_tag() }}
         <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}<br>
-            {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+            {{ form.username.label }}<br> 
+            {{ form.username(size=32) }}<br> <!-- Eingabefeld für Benutzername -->
+            {% for error in form.username.errors %} <!-- Schleife für Benutzernamenfehler -->
+            <span style="color: red;">[{{ error }}]</span> <!-- Fehlermeldung in Rot anzeigen -->
             {% endfor %}
+            
         </p>
         <p>
             {{ form.password.label }}<br>
-            {{ form.password(size=32) }}<br>
-            {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+            {{ form.password(size=32) }}<br> <!-- Eingabefeld für Passwort -->
+            {% for error in form.password.errors %} <!-- Schleife für Passwortfehler -->
+            <span style="color: red;">[{{ error }}]</span> <!-- Fehlermeldung in Rot anzeigen -->
             {% endfor %}
         </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit() }}</p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p> <!-- Checkbox zum "Remember Me" auswählen -->
+        <p>{{ form.submit() }}</p> <!-- Anmelde-Button -->
     </form>
-    <p>Neuer Benutzer? <a href="{{ url_for('register') }}">Klicken Sie hier um sich zu registrieren!</a></p>
+    <p>Neuer Benutzer? <a href="{{ url_for('register') }}">Klicken Sie hier um sich zu registrieren!</a></p> <!-- Link zur Registrierungsseite -->
 {% endblock %}
