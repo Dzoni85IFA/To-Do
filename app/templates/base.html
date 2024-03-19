@@ -1,33 +1,34 @@
 <!doctype html>
 <html>
     <head>
-        {% if title %}
-        <title>{{ title }} To-Do App</title>
+        {% if title %} <!-- Überprüft, ob ein Titel definiert ist -->
+        <title>{{ title }} To-Do App</title> <!-- Setzt den Titel der Seite -->
         {% else %}
-        <title>Herzlich willkommen bei der To-Do App</title>
+        <title>Herzlich willkommen bei der To-Do App</title> <!-- Standardtitel, falls kein Titel definiert ist -->
         {% endif %}
     </head>
     <body>
         <div>
             Herzlich willkommen bei der To-Do App
-            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('index') }}">Home</a> <!-- Link zur Startseite -->
             
-            <a href="{{ url_for('neuesToDo') }}">Erstellen Sie Ihr neues To-Do</a>
+            <a href="{{ url_for('neuesToDo') }}">Erstellen Sie Ihr neues To-Do</a> <!-- Link zum Erstellen eines neuen To-Do-Eintrags -->
             
-            <a href="{{ url_for('logout') }}">Abmeldung</a>
+            <a href="{{ url_for('logout') }}">Abmeldung</a> <!-- Link zum Ausloggen -->
             
             
         </div>
         <hr>
-        {% with messages = get_flashed_messages() %}
+        {% with messages = get_flashed_messages() %} <!-- Holt die angezeigten Flash-Nachrichten -->
         {% if messages %}
         <ul>
             {% for message in messages %}
-            <li>{{ message }}</li>
+            <li>{{ message }}</li> <!-- Zeigt die Flash-Nachrichten an -->
             {% endfor %}
         </ul>
         {% endif %}
         {% endwith %}
-        {% block content %}{% endblock %}
+        {% block content %}{% endblock %} <!-- Platzhalter für den Seiteninhalt -->
     </body>
 </html>
+
