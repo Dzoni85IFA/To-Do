@@ -1,37 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Guten Tag {{ user }}!</h1>
-    <form action="" method="post" novalidate>
+    <h1>Guten Tag {{ user }}!</h1> <!-- Begrüssungsnachricht mit Benutzername -->
+    <form action="" method="post" novalidate> <!-- Formular mit POST-Methode -->
         {{ form.hidden_tag() }}
         <p>
             {{ form.titel.label }}<br>
-            {{ form.titel(size=32) }}<br>
-            {% for error in form.titel.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+            {{ form.titel(size=32) }}<br> <!-- Eingabefeld für Titel -->
+            {% for error in form.titel.errors %}  <!-- Fehlermeldungen für Titel -->
+            <span style="color: red;">[{{ error }}]</span>  <!-- Fehlermeldung in Rot -->
             {% endfor %}
         </p>
-        <p>
+        <p>          
             {{ form.description.label }}<br>
-            {{ form.description(size=32) }}<br>
-            {% for error in form.description.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+            {{ form.description(size=32) }}<br> <!-- Eingabefeld für Beschreibung -->
+            {% for error in form.description.errors %} <!-- Fehlermeldungen für Beschreibung -->
+            <span style="color: red;">[{{ error }}]</span>  <!-- Fehlermeldung in Rot -->
             {% endfor %}
         </p>
         <p>
             {{ form.status.label }}<br>
-            {{ form.status(size=4) }}<br>
-            {% for error in form.status.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+            {{ form.status(size=4) }}<br> <!-- Eingabefeld für Status -->
+            {% for error in form.status.errors %} <!-- Fehlermeldungen für Status -->
+            <span style="color: red;">[{{ error }}]</span>  <!-- Fehlermeldung in Rot -->
             {% endfor %}
         </p>
         <p>
             {{ form.todountil.label }}<br>
-            {{ form.todountil(size=32) }}<br>
-            {% for error in form.todountil.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+            {{ form.todountil(size=32) }}<br> <!-- Eingabefeld für Fälligkeitsdatum -->
+            {% for error in form.todountil.errors %}  <!-- Fehlermeldungen für Fälligkeitsdatum -->
+            <span style="color: red;">[{{ error }}]</span>  <!-- Fehlermeldung in Rot -->
             {% endfor %}
         </p>
-        <p>{{ form.submit() }}</p>
+        <p>{{ form.submit() }}</p> <!-- Button zum Absenden des Formulars -->
     </form>
 {% endblock %}
